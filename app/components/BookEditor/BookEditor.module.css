@@ -1,0 +1,58 @@
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalInner {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modalTopRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modalTopRow header {
+  font-weight: bold;
+}
+
+.closeButton {
+  align-self: flex-end;
+  margin-bottom: 8px;
+}
+
+.inputRow {
+  display: flex;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.inputRow label{
+  margin-right: 4px;
+}
+
+.inputRow input {
+  flex: 1;
+}
+
+.descriptionContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.descriptionContainer label {
+  margin-bottom: 8px;
+}
+
+.descriptionContainer textarea {
+  width: 100%;
+  margin-bottom: 8px;
+}
