@@ -22,10 +22,16 @@ export default function BookEditor() {
   }
 
   return (
-    <form className={styles.modalBackdrop} action={action}>
+    <form action={action} className={styles.modalRoot}>
+      <div
+        className={styles.modalBackdrop}
+        onClick={() => dispatch(closeModal())}
+      ></div>
       <div className={styles.modalInner}>
         <div className={styles.modalTopRow}>
-          <header>{content!.id === "" ? "Add Book" : "Edit Book"}</header>
+          <header className={styles.title}>
+            {content!.id === "" ? "Add Book" : "Edit"}
+          </header>
           <button
             onClick={() => dispatch(closeModal())}
             className={styles.closeButton}

@@ -16,9 +16,9 @@ export const Booklist = async () => {
         <thead>
           <tr>
             <td>Book Name</td>
-            <td>Category</td>
-            <td>Price</td>
-            <td>Action</td>
+            <td className={styles.category}>Category</td>
+            <td className={styles.price}>Price</td>
+            <td className={styles.deleteButton}>Action</td>
           </tr>
         </thead>
         <tbody>

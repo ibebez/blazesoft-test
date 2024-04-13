@@ -7,7 +7,9 @@ export default function DeleteButton(props: { id: string }) {
   return (
     <form action={deleteBook}>
       <input type="text" name="id" value={props.id} hidden readOnly />
-      <button type="submit">Delete</button>
+      <button type="submit" style={{ fontSize: 12 }}>
+        Delete
+      </button>
     </form>
   );
 }
