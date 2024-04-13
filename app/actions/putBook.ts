@@ -1,13 +1,16 @@
 "use server";
 import { randomUUID } from "crypto";
 import type { Book } from "@/lib/state/book";
-import { revalidateTag } from "next/cache";
+import { revalidatePath } from "next/cache";
 import tryReadData from "./tryReadData";
 import { promises as fs } from "fs";
+import { tmpdir } from "os";
 
 export default async function putBook(prevState: any, formData: FormData) {
   const oid = formData.get("id") as string;
   const price = formData.get("price");
+  const path = tmpdir + "/booklist.json";
+
   const book: Book = {
     id: oid === "" ? randomUUID() : oid,
     name: formData.get("name") as string,
@@ -23,9 +26,10 @@ export default async function putBook(prevState: any, formData: FormData) {
   }
 
   await fs.writeFile(
-    process.cwd() + "/app/booklist.json",
+    path,
     JSON.stringify(booklist.map((b) => (b.id === book.id ? book : b)))
   );
-  revalidateTag("booklist");
+
+  revalidatePath("/");
   return "ok" + randomUUID();
 }
