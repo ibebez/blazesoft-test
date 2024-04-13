@@ -6,7 +6,7 @@ import AddBookButton from "../AddBookButton/AddBookButton";
 import BookName from "../BookName";
 import DeleteButton from "../DeleteButton";
 export const Booklist = async () => {
-  const apiRes = await fetch("http://localhost:3000/api/books", {
+  const apiRes = await fetch(`http://${process.env.VERCEL_URL}/api/books`, {
     next: { tags: ["booklist"] },
   });
   const booklist = (await apiRes.json()) as any as Book[];
