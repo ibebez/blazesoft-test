@@ -6,11 +6,11 @@ export default function BookName(props: { book: Book }) {
   const dispatch = useAppDispatch();
 
   return (
-    <span
+    <div
       style={{ cursor: "pointer", textDecoration: "underline" }}
       onClick={() => dispatch(editBook(props.book))}
     >
       {props.book.name}
-    </span>
+    </div>
   );
 }
